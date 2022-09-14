@@ -2,9 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { formatDate } from '../helpers';
 import styles from '../styles/Entry.module.css';
-export const Entry = ({ entry, id }) => {
-   console.log(entry);
-   const { title, summary, image, publishedAt } = entry;
+export const Entry = ({ entry }) => {
+   const { title, summary, image, publishedAt, url } = entry;
    return (
       <article className={styles.card}>
          <Image
@@ -19,7 +18,7 @@ export const Entry = ({ entry, id }) => {
          <div className={styles.container}>
             <h3>{title}</h3>
             <p className={styles.summary}>{summary}</p>
-            <Link href={`/blog/${id}`}>
+            <Link href={`/blog/${url}`}>
                <a className={styles.link}>Read More</a>
             </Link>
             <div className={styles.information}>

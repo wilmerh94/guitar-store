@@ -1,31 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# About this project
 
-## Getting Started
+This project is base on ReactJS, NextJS, Strapi v4
 
-First, run the development server:
+## NextJS
 
-```bash
-npm run dev
-# or
-yarn dev
+Next is going to help with the routing like react router dom but quickly.
+Any File create pages it will be the url. example
+
+pages\blog.jsx = <http://localhost:3000/blog/>
+pages\about.jsx = <http://localhost:3000/about/>
+
+## Creating dynamic URL or static
+
+First option.
+
+This function build the page in every request every time you get to this page.
+
+Using this function I will be able to see the data just on my Command Prop
+
+```jsx
+export async function getServerSideProps() {
+const url = 'http://localhost:1337/api/blogs';
+const response = await fetch(url);
+const res = await response.json();
+return {
+   props: {
+    res,
+         }
+   },
+};
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This function is going to be below the function on the component File. After we get the return props. We will pass the props to the component
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Filter in Strapi v4
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+` const urlBlog =`http://localhost:1337/api/blogs?[filters][url]=${url}&populate[image][fields][1]=url`; `
 
 ## Deploy on Vercel
 

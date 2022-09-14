@@ -17,6 +17,7 @@ body {
    font-size: 2rem;
    font-family: var(--font-main);
    line-height: 1.5;
+   background: rgb (255, 253, 250);
 }
 img {
    max-width: 100%;
