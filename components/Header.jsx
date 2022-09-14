@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from '../styles/Header.module.css';
 
 export const Header = () => {
@@ -9,7 +9,14 @@ export const Header = () => {
             <div className={styles.navbar}>
                <div>
                   <Link href='/'>
-                     <Image width={400} height={100} src='/logo.svg' alt='Image Logo' />
+                     <a>
+                        <Image
+                           width={400}
+                           height={100}
+                           src='/logo.svg'
+                           alt='Image Logo'
+                        />
+                     </a>
                   </Link>
                </div>
                <nav className={styles.navigation}>
