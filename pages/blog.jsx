@@ -1,16 +1,10 @@
-import Entry from '../components/Entry';
 import Layout from '../components/Layout';
-import styles from '../styles/Blog.module.css';
+import ListBlog from '../components/ListBlog';
 export const Blog = ({ entries }) => {
    return (
       <Layout page='Virtual Blog'>
          <main className='container'>
-            <h2 className='heading'>Blog</h2>
-            <div className={styles.blog}>
-               {entries.map((entry) => (
-                  <Entry entry={entry.attributes} key={entry.id} id={entry.id} />
-               ))}
-            </div>
+            <ListBlog entries={entries} />
          </main>
       </Layout>
    );

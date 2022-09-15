@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/Guitar.module.css';
 const Guitar = ({ guitar }) => {
-   const { description, name, price, url, image } = guitar;
+   const { description, name, price, url, image } = guitar.attributes;
    return (
       <div className={styles.guitar}>
          <Image

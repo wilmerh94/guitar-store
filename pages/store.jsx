@@ -3,7 +3,6 @@ import Layout from '../components/Layout';
 import List from '../components/List';
 
 export const Store = ({ guitars }) => {
-   console.log(guitars);
    return (
       <Layout page='Virtual Store'>
          <main className='container'>
